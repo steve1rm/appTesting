@@ -3,14 +3,24 @@ package com.example.android.testing.androidjunitrunnersample;
 /**
  * Created by steve on 4/1/16.
  */
+
 public class CalculatorPresenter {
 
     private CalculatorActivity mView;
 
-
-
     public CalculatorPresenter(CalculatorActivity view) {
         mView = view;
+    }
+
+    /**
+     * Addition
+     */
+    public void addExt() {
+        Double firstOperand = Double.valueOf(mView.mOperandOneEditText.getText().toString());
+        Double secondOperand = Double.valueOf(mView.mOperandTwoEditText.getText().toString());
+
+        Double answer = firstOperand + secondOperand;
+        mView.updateAnswer(answer);
     }
 
     /**
@@ -31,8 +41,12 @@ public class CalculatorPresenter {
      * Divide operation
      */
     public void div(Double firstOperand, Double secondOperand) {
-        // checkArgument(secondOperand != 0, "secondOperand must be != 0, you cannot divide by zero");
-        mView.updateAnswer(firstOperand / secondOperand);
+        if(secondOperand != 0) {
+            mView.updateAnswer(firstOperand / secondOperand);
+        }
+        else {
+            mView.updateAnswer(0.0);
+        }
     }
 
     /**

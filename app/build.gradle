@@ -43,6 +43,5 @@ dependencies {
     // androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
     // androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
     compile 'com.jakewharton:butterknife:7.0.1'
-
-    testCompile 'org.powermock:powermock:1.6.4'
+    testCompile 'org.mockito:mockito-all:1.10.19'
 }
