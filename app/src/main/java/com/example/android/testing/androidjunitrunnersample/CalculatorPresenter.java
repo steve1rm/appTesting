@@ -16,33 +16,43 @@ public class CalculatorPresenter {
      * Addition
      */
     public void addExt() {
-        Double firstOperand = Double.valueOf(mView.mOperandOneEditText.getText().toString());
-        Double secondOperand = Double.valueOf(mView.mOperandTwoEditText.getText().toString());
+        final Double firstDigit = Double.valueOf(mView.getFirstDigit());
+        final Double secondDigit = Double.valueOf(mView.getSecondDigit());
 
-        Double answer = firstOperand + secondOperand;
+        Double answer = firstDigit + secondDigit;
+
         mView.updateAnswer(answer);
     }
 
     /**
      * Addition operation
      */
-    public void add(Double firstOperand, Double secondOperand) {
-        mView.updateAnswer(firstOperand + secondOperand);
+    public void add() {
+        final Double firstDigit = Double.valueOf(mView.getFirstDigit());
+        final Double secondDigit = Double.valueOf(mView.getSecondDigit());
+
+        mView.updateAnswer(firstDigit + secondDigit);
     }
 
     /**
      * Substract operation
      */
-    public void sub(Double firstOperand, Double secondOperand) {
-        mView.updateAnswer(firstOperand - secondOperand);
+    public void sub() {
+        final Double firstDigit = Double.valueOf(mView.getFirstDigit());
+        final Double secondDigit = Double.valueOf(mView.getSecondDigit());
+
+        mView.updateAnswer(firstDigit - secondDigit);
     }
 
     /**
      * Divide operation
      */
-    public void div(Double firstOperand, Double secondOperand) {
-        if(secondOperand != 0) {
-            mView.updateAnswer(firstOperand / secondOperand);
+    public void div() {
+        final Double firstDigit = Double.valueOf(mView.getFirstDigit());
+        final Double secondDigit = Double.valueOf(mView.getSecondDigit());
+
+        if(secondDigit != 0) {
+            mView.updateAnswer(firstDigit / secondDigit);
         }
         else {
             mView.updateAnswer(0.0);
@@ -52,7 +62,10 @@ public class CalculatorPresenter {
     /**
      * Multiply operation
      */
-    public void mul(Double firstOperand, Double secondOperand) {
-        mView.updateAnswer(firstOperand * secondOperand);
+    public void mul() {
+        final Double firstDigit = Double.valueOf(mView.getFirstDigit());
+        final Double secondDigit = Double.valueOf(mView.getSecondDigit());
+
+        mView.updateAnswer(firstDigit * secondDigit);
     }
 }

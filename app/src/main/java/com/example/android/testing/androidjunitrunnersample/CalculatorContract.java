@@ -5,4 +5,7 @@ package com.example.android.testing.androidjunitrunnersample;
  */
 public interface CalculatorContract {
     void updateAnswer(Double answer);
+    void displayError();
+    String getFirstDigit();
+    String getSecondDigit();
 }

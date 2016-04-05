@@ -22,9 +22,6 @@ package com.example.android.testing.androidjunitrunnersample;
  * A simple calculator with a basic set of operations.
  */
 public class Calculator {
-
-    public enum Operator {ADD, SUB, DIV, MUL}
-
     /**
      * Addition operation
      */
@@ -43,7 +40,6 @@ public class Calculator {
      * Divide operation
      */
     public double div(double firstOperand, double secondOperand) {
-        // checkArgument(secondOperand != 0, "secondOperand must be != 0, you cannot divide by zero");
         return firstOperand / secondOperand;
     }
 

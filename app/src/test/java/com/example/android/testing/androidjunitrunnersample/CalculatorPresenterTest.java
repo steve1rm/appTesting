@@ -7,8 +7,10 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
@@ -34,9 +36,25 @@ public class CalculatorPresenterTest {
     }
 
     @Test
+    public void failIfFirstDigitsIsEmpty() throws Exception {
+        when(mCalculatorActivity.getFirstDigit()).thenReturn("");
+        mCalculatorPresenter.add();
+
+        verify(mCalculatorActivity).displayError();
+    }
+
+    @Test
+    public void testAddExt() throws Exception {
+        final Double num1 = Double.valueOf(mCalculatorActivity.mOperandOneEditText.getText().toString());
+        final Double num2 = Double.valueOf(mCalculatorActivity.mOperandTwoEditText.getText().toString());
+
+    //    mCalculatorPresenter.add(num1, num2);
+
+
+    }
+
+    @Test
     public void testAdd() throws Exception {
-      //  when(mCalculatorPresenter.add(10.0, 10.0)).thenReturn(20.0);
-      //  when(mCalculatorPresenter.add(10.0, 20.0))
 
     }
 

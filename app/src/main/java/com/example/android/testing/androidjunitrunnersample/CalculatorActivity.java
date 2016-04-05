@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,7 +47,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorC
 
         ButterKnife.bind(CalculatorActivity.this);
 
-        mCalculatorPresenter = new CalculatorPresenter(this);
+        mCalculatorPresenter = new CalculatorPresenter(CalculatorActivity.this);
     }
 
     /**
@@ -55,6 +56,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorC
     @SuppressWarnings("unused")
     @OnClick(R.id.operation_add_btn)
     public void onAdd(View view) {
+
 /*
         mCalculatorPresenter.add(
                 Double.valueOf(mOperandOneEditText.getText().toString()),
@@ -68,9 +70,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorC
     @SuppressWarnings("unused")
     @OnClick(R.id.operation_sub_btn)
     public void onSub(View view) {
-        mCalculatorPresenter.sub(
-                Double.valueOf(mOperandOneEditText.getText().toString()),
-                Double.valueOf(mOperandTwoEditText.getText().toString()));
+        mCalculatorPresenter.sub();
     }
 
     /**
@@ -79,9 +79,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorC
     @SuppressWarnings("unused")
     @OnClick(R.id.operation_div_btn)
     public void onDiv(View view) {
-        mCalculatorPresenter.div(
-                Double.valueOf(mOperandOneEditText.getText().toString()),
-                Double.valueOf(mOperandTwoEditText.getText().toString()));
+        mCalculatorPresenter.div();
     }
 
     /**
@@ -90,13 +88,26 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorC
     @SuppressWarnings("unused")
     @OnClick(R.id.operation_mul_btn)
     public void onMul(View view) {
-        mCalculatorPresenter.mul(
-                Double.valueOf(mOperandOneEditText.getText().toString()),
-                Double.valueOf(mOperandTwoEditText.getText().toString()));
+        mCalculatorPresenter.mul();
+    }
+
+    @Override
+    public String getFirstDigit() {
+        return mOperandOneEditText.getText().toString();
+    }
+
+    @Override
+    public String getSecondDigit() {
+        return mOperandTwoEditText.getText().toString();
     }
 
     @Override
     public void updateAnswer(Double answer) {
         mResultTextView.setText(String.valueOf(answer));
+    }
+
+    @Override
+    public void displayError() {
+        Toast.makeText(CalculatorActivity.this, "Numbers are not all entered", Toast.LENGTH_SHORT).show();
     }
 }
