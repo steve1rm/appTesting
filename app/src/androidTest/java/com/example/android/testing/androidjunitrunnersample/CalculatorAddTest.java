@@ -31,6 +31,7 @@ public class CalculatorAddTest extends ActivityInstrumentationTestCase2<Calculat
         onView(withId(R.id.operand_one_edit_text)).perform(typeText(THREE));
         onView(withId(R.id.operand_two_edit_text)).perform(typeText(FOUR));
         onView(withId(R.id.operation_add_btn)).perform(click());
+        
         onView(withId(R.id.operation_result_text_view)).check(matches(withText(RESULT)));
    }
 }
