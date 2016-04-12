@@ -7,11 +7,11 @@ package com.example.android.testing.androidjunitrunnersample;
 public class CalculatorPresenter {
 
     private CalculatorActivity mView;
-  //  private CalculatorModel mCalculatorModel;
+    private CalculatorModel mCalculatorModel;
 
     public CalculatorPresenter(CalculatorActivity view) {
         mView = view;
- //       mCalculatorModel = new CalculatorModel();
+        mCalculatorModel = new CalculatorModel();
     }
 
     /**
@@ -21,8 +21,8 @@ public class CalculatorPresenter {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
 
-  //      Double answer = mCalculatorModel.add(firstDigit, secondDigit);
-  //      mView.updateAnswer(answer);
+        Double answer = mCalculatorModel.add(firstDigit, secondDigit);
+        mView.updateAnswer(answer);
     }
 
     /**
@@ -32,8 +32,8 @@ public class CalculatorPresenter {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
 
-  //      final Double answer = mCalculatorModel.sub(firstDigit, secondDigit);
-  //      mView.updateAnswer(answer);
+        final Double answer = mCalculatorModel.sub(firstDigit, secondDigit);
+        mView.updateAnswer(answer);
     }
 
     /**
@@ -43,8 +43,8 @@ public class CalculatorPresenter {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
 
-   //     final Double answer = mCalculatorModel.div(firstDigit, secondDigit);
-   //     mView.updateAnswer(answer);
+        final Double answer = mCalculatorModel.div(firstDigit, secondDigit);
+        mView.updateAnswer(answer);
     }
 
     /**
@@ -54,7 +54,7 @@ public class CalculatorPresenter {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
 
-   //     final Double answer = mCalculatorModel.mul(firstDigit, secondDigit);
-    //    mView.updateAnswer(answer);
+        final Double answer = mCalculatorModel.mul(firstDigit, secondDigit);
+        mView.updateAnswer(answer);
     }
 }

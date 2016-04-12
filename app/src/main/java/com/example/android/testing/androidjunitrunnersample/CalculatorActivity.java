@@ -56,12 +56,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorC
     @SuppressWarnings("unused")
     @OnClick(R.id.operation_add_btn)
     public void onAdd(View view) {
-
-/*
-        mCalculatorPresenter.add(
-                Double.valueOf(mOperandOneEditText.getText().toString()),
-                Double.valueOf(mOperandTwoEditText.getText().toString()));
-*/
+        mCalculatorPresenter.add();
     }
 
     /**
