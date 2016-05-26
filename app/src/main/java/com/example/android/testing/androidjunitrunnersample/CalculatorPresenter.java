@@ -4,7 +4,7 @@ package com.example.android.testing.androidjunitrunnersample;
  * Created by steve on 4/1/16.
  */
 
-public class CalculatorPresenter {
+public class CalculatorPresenter implements CalculatorPresenterContract {
 
     private CalculatorActivity mView;
     private CalculatorModel mCalculatorModel;
@@ -17,6 +17,7 @@ public class CalculatorPresenter {
     /**
      * Addition operation
      */
+    @Override
     public void add() {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
@@ -28,6 +29,7 @@ public class CalculatorPresenter {
     /**
      * Substract operation
      */
+    @Override
     public void sub() {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
@@ -39,6 +41,7 @@ public class CalculatorPresenter {
     /**
      * Divide operation
      */
+    @Override
     public void div() {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
@@ -50,6 +53,7 @@ public class CalculatorPresenter {
     /**
      * Multiply operation
      */
+    @Override
     public void mul() {
         final Double firstDigit = Double.valueOf(mView.getFirstDigit());
         final Double secondDigit = Double.valueOf(mView.getSecondDigit());
