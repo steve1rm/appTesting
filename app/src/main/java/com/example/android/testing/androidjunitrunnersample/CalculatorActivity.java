@@ -16,13 +16,20 @@
 
 package com.example.android.testing.androidjunitrunnersample;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.android.testing.androidjunitrunnersample.dagger.ApplicationComponent;
+import com.example.android.testing.androidjunitrunnersample.dagger.MainApplicationClass;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,11 +41,15 @@ import butterknife.OnClick;
  * operation {@link Button}s at the bottom.
  */
 public class CalculatorActivity extends AppCompatActivity implements CalculatorContract {
+    private static final String TAG = CalculatorActivity.class.getSimpleName();
+
     private CalculatorPresenter mCalculatorPresenter;
 
     @Bind(R.id.operand_one_edit_text) EditText mOperandOneEditText;
     @Bind(R.id.operand_two_edit_text) EditText mOperandTwoEditText;
     @Bind(R.id.operation_result_text_view) TextView mResultTextView;
+
+    @Inject SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,21 @@ public class CalculatorActivity extends AppCompatActivity implements CalculatorC
         ButterKnife.bind(CalculatorActivity.this);
 
         mCalculatorPresenter = new CalculatorPresenter(CalculatorActivity.this);
+
+        ((MainApplicationClass)getApplication()).getApplicationComponent().inject(CalculatorActivity.this);
+
+/*
+        MainApplicationClass mainApplicationClass = new MainApplicationClass();
+        ApplicationComponent applicationComponent = mainApplicationClass.getApplicationComponent();
+        applicationComponent.inject(CalculatorActivity.this);
+*/
+
+        if(mSharedPreferences != null) {
+            Log.d(TAG, "mSharedPreferences are good");
+        }
+        else {
+            Log.d(TAG, "mSharedPreferences are bad");
+        }
     }
 
     /**
