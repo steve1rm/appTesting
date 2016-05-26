@@ -1,6 +1,5 @@
 package com.example.android.testing.androidjunitrunnersample;
 
-import android.app.Activity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,8 +12,8 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 /**
  * Created by steve on 4/12/16.
  */
